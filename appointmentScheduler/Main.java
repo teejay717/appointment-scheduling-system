@@ -2,9 +2,15 @@ package appointmentScheduler;
 
 import javax.swing.*;
 
-public class Main extends JFrame {
+public class Main {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(MainGUI::new);
+        SwingUtilities.invokeLater(() -> {
+            if (WelcomePopup.showWelcomeDialog()) {
+                new MainGUI();
+            } else {
+                System.exit(0);
+            }
+        });
     }
 }
 // package appointmentScheduler;
