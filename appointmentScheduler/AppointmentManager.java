@@ -35,75 +35,84 @@ public class AppointmentManager {
 
     // ADD -------------------------------------------------------
 
-    public void addAppointment(Scanner scanner) {
-
-        // name
-
-        System.out.print("\nEnter your name: ");
-        String name = scanner.nextLine().trim();
-
-        // day
-
-        System.out.println("Select day: ");
-        // display DAYS
-        for (int i = 0; i < DAYS.length; i++) {
-            System.out.printf(" %d. %s\n", i + 1, DAYS[i]);
+    public boolean addAppointment(String name, String day, String timeSlot, String purpose) {
+        if (name.isEmpty() || day.isEmpty() || timeSlot.isEmpty() || purpose.isEmpty()) {
+            return false;
         }
-        System.out.print("Choose day (1-7): ");
-
-        int dayChoice;
-
-        // try scanning dayChoice
-        try {
-            dayChoice = Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input!");
-            return;
-        }
-        // invalid day checker
-        if (dayChoice < 1 || dayChoice > 7) {
-            System.out.println("Invalid day selection.");
-            return;
-        }
-
-        String day = DAYS[dayChoice - 1];
-
-        // timeSlot
-        System.out.println("Select time slot: ");
-        // displayTimeSlots
-        for (int i = 0; i < TIME_SLOTS.length; i++) {
-            System.out.printf(" %d. %s\n", i + 1, TIME_SLOTS[i]);
-        }
-
-        System.out.print("Choose time (1-10): ");
-
-        int timeSlotChoice;
-
-        // try scanning timeSlotChoice
-        try {
-            timeSlotChoice = Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input!");
-            return;
-        }
-        // invalid timeSlot checker
-        if (timeSlotChoice < 1 || timeSlotChoice > 10) {
-            System.out.println("Invalid day selection.");
-            return;
-        }
-
-        String timeSlot = TIME_SLOTS[timeSlotChoice - 1];
-
         if (conflictChecker.hasConflict(appointments, count, day, timeSlot)) {
-            System.out.println("Conflict! " + day + " " + timeSlot + " is already taken. Please try another slot.");
-            return;
+            return false;
         }
-
-        System.out.print("Enter purpose: ");
-        String purpose = scanner.nextLine().trim();
-
         appointments[count++] = new Appointment(name, day, timeSlot, purpose);
-        System.out.println("Appointment added successfully!");
+
+        return true;
+        // // name
+
+        // System.out.print("\nEnter your name: ");
+        // String name = scanner.nextLine().trim();
+
+        // // day
+
+        // System.out.println("Select day: ");
+        // // display DAYS
+        // for (int i = 0; i < DAYS.length; i++) {
+        // System.out.printf(" %d. %s\n", i + 1, DAYS[i]);
+        // }
+        // System.out.print("Choose day (1-7): ");
+
+        // int dayChoice;
+
+        // // try scanning dayChoice
+        // try {
+        // dayChoice = Integer.parseInt(scanner.nextLine().trim());
+        // } catch (NumberFormatException e) {
+        // System.out.println("Invalid input!");
+        // return;
+        // }
+        // // invalid day checker
+        // if (dayChoice < 1 || dayChoice > 7) {
+        // System.out.println("Invalid day selection.");
+        // return;
+        // }
+
+        // String day = DAYS[dayChoice - 1];
+
+        // // timeSlot
+        // System.out.println("Select time slot: ");
+        // // displayTimeSlots
+        // for (int i = 0; i < TIME_SLOTS.length; i++) {
+        // System.out.printf(" %d. %s\n", i + 1, TIME_SLOTS[i]);
+        // }
+
+        // System.out.print("Choose time (1-10): ");
+
+        // int timeSlotChoice;
+
+        // // try scanning timeSlotChoice
+        // try {
+        // timeSlotChoice = Integer.parseInt(scanner.nextLine().trim());
+        // } catch (NumberFormatException e) {
+        // System.out.println("Invalid input!");
+        // return;
+        // }
+        // // invalid timeSlot checker
+        // if (timeSlotChoice < 1 || timeSlotChoice > 10) {
+        // System.out.println("Invalid day selection.");
+        // return;
+        // }
+
+        // String timeSlot = TIME_SLOTS[timeSlotChoice - 1];
+
+        // if (conflictChecker.hasConflict(appointments, count, day, timeSlot)) {
+        // System.out.println("Conflict! " + day + " " + timeSlot + " is already taken.
+        // Please try another slot.");
+        // return;
+        // }
+
+        // System.out.print("Enter purpose: ");
+        // String purpose = scanner.nextLine().trim();
+
+        // appointments[count++] = new Appointment(name, day, timeSlot, purpose);
+        // System.out.println("Appointment added successfully!");
     }
 
     // VIEW --------------------------------------------------
@@ -121,37 +130,51 @@ public class AppointmentManager {
 
     // CANCEL -----------------------------------------------
 
-    public void cancelAppointment(Scanner scanner) {
-        if (count == 0) {
-            System.out.println("\nNo appointments to cancel.");
-            return;
-        }
+    public boolean cancelAppointment(int index) {
 
-        viewAppointments();
-
-        System.out.print("Enter the number of the appointment to cancel: ");
-        int num;
-
-        try {
-            num = Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input.");
-            return;
-        }
-
-        if (num < 1 || num > count) {
+        if (index < 1 || index > count) {
             System.out.println("Invalid selection.");
-            return;
+            return false;
         }
-
-        String cancelledName = appointments[num - 1].getName();
-
-        for (int i = num - 1; i < count - 1; i++) {
+        // String cancelledName = appointments[index - 1].getName();
+        for (int i = index - 1; i < count - 1; i++) {
             appointments[i] = appointments[i + 1];
         }
+
         appointments[--count] = null;
 
-        System.out.println("Appointment for " + cancelledName + " has been cancelled.");
+        return true;
+        // if (count == 0) {
+        // System.out.println("\nNo appointments to cancel.");
+        // return;
+        // }
+
+        // viewAppointments();
+
+        // System.out.print("Enter the number of the appointment to cancel: ");
+        // int num;
+
+        // try {
+        // num = Integer.parseInt(scanner.nextLine().trim());
+        // } catch (NumberFormatException e) {
+        // System.out.println("Invalid input.");
+        // return;
+        // }
+
+        // if (num < 1 || num > count) {
+        // System.out.println("Invalid selection.");
+        // return;
+        // }
+
+        // String cancelledName = appointments[num - 1].getName();
+
+        // for (int i = num - 1; i < count - 1; i++) {
+        // appointments[i] = appointments[i + 1];
+        // }
+        // appointments[--count] = null;
+
+        // System.out.println("Appointment for " + cancelledName + " has been
+        // cancelled.");
 
     }
 
@@ -173,8 +196,8 @@ public class AppointmentManager {
             }
 
         }
-        System.out.println("Appointments sorted by day and time.");
-        viewAppointments();
+        // System.out.println("Appointments sorted by day and time.");
+        // viewAppointments();
     }
 
     // helper functions
