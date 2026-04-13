@@ -1,7 +1,5 @@
 package appointmentScheduler;
 
-import java.util.Scanner;
-
 public class AppointmentManager {
 
     public static final int MAX = 100;
