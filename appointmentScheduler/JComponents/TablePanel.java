@@ -72,7 +72,7 @@ public class TablePanel extends JPanel {
 
     public void handleCancelAppointment(int index) {
         JOptionPane.showMessageDialog(null,
-                "Appointment cancelled for : " + manager.getAppointments()[index - 1].getName() + " on "
+                "Appointment cancelled for " + manager.getAppointments()[index - 1].getName() + ", on "
                         + manager.getAppointments()[index - 1].getDay() + " at "
                         + manager.getAppointments()[index - 1].getTimeSlot());
 

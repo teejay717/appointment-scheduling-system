@@ -6,12 +6,14 @@ import java.awt.*;
 public class WelcomePopup {
     public static boolean showWelcomeDialog() {
         JDialog welcome = new JDialog((Frame) null, "Welcome", true);
-        welcome.setSize(350, 200);
+        welcome.setSize(500, 300);
         welcome.setLocationRelativeTo(null);
         welcome.setLayout(new BorderLayout());
 
-        JLabel msg = new JLabel("Welcome to X Clinic", SwingConstants.CENTER);
-        JLabel sub = new JLabel("Appointment Scheduling System", SwingConstants.CENTER);
+        JLabel msg = new JLabel("Appointment Scheduling System", SwingConstants.CENTER);
+        msg.setFont(new Font("SansSerif", Font.BOLD, 24));
+        JLabel sub = new JLabel("by Dantes, Lambino, Sumalinab", SwingConstants.CENTER);
+        sub.setFont(new Font("SansSerif", Font.BOLD, 14));
 
         JPanel btnPanel = new JPanel(new FlowLayout());
         JButton proceedBtn = new JButton("Proceed");
