@@ -1,13 +1,17 @@
 ==========================================
       APPOINTMENT SCHEDULE
 ==========================================
-Generated: 2026-04-13 16:28:49
+Generated: 2026-04-15 21:52:03
 
 #    Name                   Day          Time Slot     Purpose             
 ---------------------------------------------------------------------------
-1    asda                   Monday       8AM-9AM       sdada               
-2    YOOOO                  Saturday     8AM-9AM       asdad               
+1    Person Five            Monday       2PM-3PM       Purpose Here        
+2    Person Three           Tuesday      10AM-11AM     Purpose Here        
+3    Person Four            Thursday     1PM-2PM       Purpose Here        
+4    Person One             Friday       8AM-9AM       Purpose Here        
+5    Person Two             Saturday     12PM-1PM      Purpose Here        
+6    1                      Monday       8AM-9AM       1                   
 ---------------------------------------------------------------------------
-Total appointments: 2
+Total appointments: 6
 
 ==========================================

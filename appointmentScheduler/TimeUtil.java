@@ -1,5 +1,10 @@
 package appointmentScheduler;
 
+// Group Coordinator: Terenz Jahred Dantes
+// Members: 
+// Brent Angelo Lambino
+// Jude Robin Sumalinab
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 

@@ -1,5 +1,10 @@
 package appointmentScheduler;
 
+// Group Coordinator: Terenz Jahred Dantes
+// Members: 
+// Brent Angelo Lambino
+// Jude Robin Sumalinab
+
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;

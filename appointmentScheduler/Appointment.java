@@ -1,5 +1,10 @@
 package appointmentScheduler;
 
+// Group Coordinator: Terenz Jahred Dantes
+// Members: 
+// Brent Angelo Lambino
+// Jude Robin Sumalinab
+
 public class Appointment {
     private String name;
     private String day;

@@ -1,5 +1,10 @@
 package appointmentScheduler;
 
+// Group Coordinator: Terenz Jahred Dantes
+// Members: 
+// Brent Angelo Lambino
+// Jude Robin Sumalinab
+
 import javax.swing.*;
 import java.awt.*;
 
